@@ -10,9 +10,13 @@ const CartDrawer = ({ drawerOpener, openDrawer }) => {
     >
       <div className="flex justify-end p-3">
         <button onClick={openDrawer}>
-          <IoMdClose className="h-6 w-6 text-pink-400" />
+          <IoMdClose className="h-6 w-6 text-pink-400 bg-pink-200 rounded-full p-0.5 cursor-pointer" />
         </button>
       </div>
+
+
+
+      
     </div>
   );
 };

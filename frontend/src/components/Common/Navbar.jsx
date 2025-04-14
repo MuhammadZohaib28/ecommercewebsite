@@ -46,7 +46,7 @@ const Navbar = () => {
           <Link to={"/"} className="text-2xl font-medium">
             EcomWeb
           </Link>
-        </div>
+        </div>  
 
         <div className="hidden md:flex space-x-6">
           {menuData.map((i, index) => {
