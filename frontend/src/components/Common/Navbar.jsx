@@ -8,35 +8,41 @@ import {
 } from "react-icons/hi2";
 import SearchBar from "./SearchBar";
 import CartDrawer from "../Layout/CartDrawer";
+import NavMenu from "../Layout/NavMenu";
+
+export const menuData = [
+  {
+    id: 1,
+    to: "#",
+    menuName: "Men",
+  },
+  {
+    id: 2,
+    to: "#",
+    menuName: "Women",
+  },
+  {
+    id: 3,
+    to: "#",
+    menuName: "Bottom Wear",
+  },
+  {
+    id: 4,
+    to: "#",
+    menuName: "Top Wear",
+  },
+];
 
 const Navbar = () => {
-  const menuData = [
-    {
-      id: 1,
-      to: "#",
-      menuName: "Men",
-    },
-    {
-      id: 2,
-      to: "#",
-      menuName: "Women",
-    },
-    {
-      id: 3,
-      to: "#",
-      menuName: "Bottom Wear",
-    },
-    {
-      id: 4,
-      to: "#",
-      menuName: "Top Wear",
-    },
-  ];
-
   const [drawerOpener, setDrawerOpener] = useState(false);
+  const [navMenu, setNavMenu] = useState(false);
 
   const openDrawer = () => {
     setDrawerOpener(!drawerOpener);
+  };
+
+  const openNavMenu = () => {
+    setNavMenu(!navMenu);
   };
 
   return (
@@ -46,7 +52,7 @@ const Navbar = () => {
           <Link to={"/"} className="text-2xl font-medium">
             EcomWeb
           </Link>
-        </div>  
+        </div>
 
         <div className="hidden md:flex space-x-6">
           {menuData.map((i, index) => {
@@ -78,13 +84,15 @@ const Navbar = () => {
             <SearchBar />
           </div>
 
-          <button className="block md:hidden ">
+          <button className="block md:hidden " onClick={openNavMenu}>
             <HiBars3BottomRight className="h-6 w-6 hover:text-pink-400" />
           </button>
         </div>
       </nav>
 
       <CartDrawer drawerOpener={drawerOpener} openDrawer={openDrawer} />
+
+      <NavMenu openNavMenu={openNavMenu} navMenu={navMenu} />
     </>
   );
 };
